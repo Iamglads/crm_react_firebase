@@ -1,0 +1,30 @@
+[
+    {
+        "prenom": "gladston",
+        "nom": "aristoverne",
+        "email": "glad@test.fr",
+        "compagnie": "Glads compagnie",
+        "notes": "Ceci est une note"
+    },
+    {
+        "prenom": "Carole",
+        "nom": "Fleury",
+        "email": "tikafleury@test.fr",
+        "compagnie": "Glads compagnie",
+        "notes": "Ceci est une note"
+    },
+    {
+        "prenom": "Jos",
+        "nom": "Ky",
+        "email": "glad@test.fr",
+        "compagnie": "Glads compagnie",
+        "notes": "Ceci est une note"
+    },
+    {
+        "prenom": "Jud",
+        "nom": "Bauge",
+        "email": "jud@test.fr",
+        "compagnie": "Glads compagnie",
+        "notes": "Ceci est une note"
+    }
+]

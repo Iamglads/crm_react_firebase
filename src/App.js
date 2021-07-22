@@ -1,25 +1,61 @@
-import logo from './logo.svg';
+import React, {Component} from 'react'
 import './App.css';
+import firebase from './firebase';
+import Grid from './components/Grid';
+import Form from './components/Form'
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  constructor(props) {
+    super(props);
+
+    this.state = { 
+      contacts: []
+     };
+  }
+
+  updateData() {
+    const db = firebase.firestore();
+    const settings = { timestampsInSnapshots: true};
+    db.settings(settings)
+
+    db.collection('contacts').get()
+    .then((snapshot) => {
+      let contacts = [];
+      snapshot.forEach((doc) => {
+        let contact = Object.assign({ id: doc.id}, doc.data())
+        contacts.push(contact)
+      })
+      this.setState({ contacts: contacts})
+    })
+    .catch( err => console.log("Error: " + err))
+  }
+
+  componentWillMount(){
+    this.updateData()
+  }
+  render() {
+    console.log(this.state.contacts)
+    return (
+      <div>
+        <div className="navbar-fixed">
+          <nav className="blue lighten-2">
+            <div className="nav-wrapper">
+              <a href="/" className="brand-logo center"> Contact</a>
+            </div>
+          </nav>
+        </div>
+        <div>
+          <div>
+            <Form />
+          </div>
+          <div>
+            <Grid items={this.state.contacts}/>
+          </div>
+        </div>
+      </div>
   );
+  }
+  
 }
 
 export default App;

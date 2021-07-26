@@ -32,9 +32,13 @@ class Form extends Component {
         return ( 
             <div className="row">
                 <form className="col s12" id="addContact" onSubmit={ this.addContacts.bind(this)}>
+                <div className="card-content">
+                    <h1 className="card-title">Ajoutez un nouveau candidat</h1>
+                </div>
+                
                     <div className="row">
                         <div className="input-field col s6">
-                            <input  id="prenom" type="text" className="validate" />
+                            <input  id="prenom" type="text" className="validate"  />
                             <label for="prenom">Prénom</label>
                         </div>
                         <div className="input-field col s6">
@@ -56,8 +60,8 @@ class Form extends Component {
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                        <input id="notes" type="test" className="validate"/>
-                        <label for="notes">Notes</label>
+                            <input id="notes" type="text" className="validate"/>
+                            <label for="notes">Notes</label>
                         </div>
                     </div>
                     <div className="card-actions">

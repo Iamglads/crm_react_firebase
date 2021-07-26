@@ -25,7 +25,8 @@ class App extends Component {
 			let contact = Object.assign({ id: doc.id}, doc.data())
 			contacts.push(contact)
 		})
-		this.setState({ contacts: contacts})
+	//	this.setState({ contacts: contacts })
+		this.setState({ contacts })
 		})
 		.catch( err => console.log("Error: " + err))
 	}
@@ -49,11 +50,11 @@ class App extends Component {
 			<div className="navbar-fixed">
 				<nav className="blue lighten-2">
 					<div className="nav-wrapper">
-					<a href="/" className="brand-logo center"> Contact</a>
+					<a href="/" className="brand-logo center"> Liste Des Candidats </a>
 					</div>
 				</nav>
 			</div>
-			<div>
+			<div className="container">
 				<div>
 					<Form updateData={ this.updateData.bind(this) }/>
 				</div>
